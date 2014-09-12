@@ -17,6 +17,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self viewUIset];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -26,4 +27,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void) viewUIset
+{
+    [_pwd setLeftViewMode:UITextFieldViewModeAlways];
+    _pwd.leftView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pinkCircle.png"]];
+    
+    [_oldPwd setLeftViewMode:UITextFieldViewModeAlways];
+    _oldPwd.leftView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pinkCircle.png"]];
+    
+    [_latestPwd setLeftViewMode:UITextFieldViewModeAlways];
+    _latestPwd.leftView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pinkCircle.png"]];
+
+}
 @end
