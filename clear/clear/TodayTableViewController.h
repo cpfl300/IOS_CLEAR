@@ -10,5 +10,7 @@
 
 @interface TodayTableViewController : UITableViewController
 @property (weak, nonatomic) IBOutlet UILabel *date;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *addBtn;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *listBtn;
 
 @end

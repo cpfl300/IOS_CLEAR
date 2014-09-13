@@ -8,6 +8,7 @@
 
 #import "TodayTableViewController.h"
 #import "TodayTableViewCell.h"
+#import "RegisterViewController.h"
 
 @interface TodayTableViewController ()
 
@@ -19,8 +20,7 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-//        UIImage* logoImage = [UIImage imageNamed:@"logo.png"];
-//        self.navigationItem.titleView = [[UIImageView alloc] initWithImage:logoImage];
+        
     }
     return self;
 }
@@ -29,14 +29,33 @@
 {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    UIImage *img = [UIImage imageNamed:@"plus.png"];
+    UIGraphicsBeginImageContext(CGSizeMake(25, 25));
+    [img drawInRect:CGRectMake(0, 0, 25, 25)];
+    UIImage *newImg = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    self.navigationItem.rightBarButtonItem.image = newImg;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    UIImage* list = [UIImage imageNamed:@"listBtn.png"];
+    UIGraphicsBeginImageContext(CGSizeMake(25, 25));
+    [list drawInRect:CGRectMake(0, 0, 25, 25)];
+    UIImage *newList = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    self.navigationItem.leftBarButtonItem.image = newList;
+
 }
 
-- (void)didReceiveMemoryWarning
+- (IBAction)Add:(id)sender{
+    NSLog(@"add");
+    RegisterViewController *addVC = [[RegisterViewController alloc]init];
+    [self.navigationController pushViewController:addVC animated:YES];
+}
+
+- (IBAction)GoList:(id)sender{
+    NSLog(@"list");
+}
+
+- (void)didReceiveMemoryWarning 
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

@@ -28,11 +28,12 @@
 {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    UIImage *img = [UIImage imageNamed:@"plus.png"];
+    UIGraphicsBeginImageContext(CGSizeMake(25, 25));
+    [img drawInRect:CGRectMake(0, 0, 25, 25)];
+    UIImage *newImg = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    self.navigationItem.rightBarButtonItem.image = newImg;
 }
 
 - (void)didReceiveMemoryWarning
@@ -119,5 +120,17 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    UIImageView *imageView = [[UIImageView alloc]
+                              initWithFrame:CGRectMake(0,0,35,35)];
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    imageView.clipsToBounds = NO;
+    imageView.image = [UIImage imageNamed:@"logo.png"];
+    self.navigationItem.titleView = imageView;
+}
 
 @end

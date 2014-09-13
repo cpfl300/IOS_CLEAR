@@ -137,9 +137,22 @@
                             <outlet property="delegate" destination="TJT-dk-0wz" id="HxP-CV-ZvL"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="nPI-IZ-UJg"/>
+                    <navigationItem key="navigationItem" id="nPI-IZ-UJg">
+                        <barButtonItem key="leftBarButtonItem" id="2ja-gA-ZBz">
+                            <connections>
+                                <segue destination="vIb-ZH-yK4" kind="push" id="Ocy-B5-Vfx"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="BKU-NJ-6s7">
+                            <connections>
+                                <segue destination="DBs-iz-usX" kind="push" id="MOs-Qc-67B"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="addBtn" destination="BKU-NJ-6s7" id="fI9-C7-NMq"/>
                         <outlet property="date" destination="Pum-am-4GS" id="19U-Uq-aCa"/>
+                        <outlet property="listBtn" destination="2ja-gA-ZBz" id="OfN-Fh-pxZ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g1N-1R-oCw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -171,7 +184,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="listCell" rowHeight="108" id="uGf-9D-mM8" customClass="ListTableViewCell">
-                                <rect key="frame" x="0.0" y="22" width="320" height="108"/>
+                                <rect key="frame" x="0.0" y="86" width="320" height="108"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uGf-9D-mM8" id="cY1-Yk-peA">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="108"/>
@@ -218,6 +231,13 @@
                             <outlet property="delegate" destination="vIb-ZH-yK4" id="nca-c4-cFO"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="FTM-Q4-BBd">
+                        <barButtonItem key="rightBarButtonItem" id="Fix-lu-o56">
+                            <connections>
+                                <segue destination="DBs-iz-usX" kind="push" id="dDN-MQ-n3o"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JAI-tO-cG5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -235,10 +255,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="Fu4-1x-MFo">
-                                <rect key="frame" x="135" y="15" width="50" height="32"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="할일 등록하기" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hUI-UJ-8pJ">
                                 <rect key="frame" x="0.0" y="63" width="320" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -309,6 +325,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.96862751250000001" green="0.96862751250000001" blue="0.96862751250000001" alpha="1" colorSpace="deviceRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="y1B-NP-ld5"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wrw-7p-oKx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -320,12 +337,15 @@
         <image name="bigBlueCircle.png" width="77" height="77"/>
         <image name="greenCircle.png" width="25" height="25"/>
         <image name="growing-plants.png" width="420" height="205"/>
-        <image name="logo.png" width="73" height="49"/>
         <image name="pinkCircle.png" width="25" height="25"/>
     </resources>
+    <color key="tintColor" red="0.74901962280273438" green="0.74901962280273438" blue="0.74901962280273438" alpha="1" colorSpace="deviceRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="dDN-MQ-n3o"/>
+    </inferredMetricsTieBreakers>
 </document>

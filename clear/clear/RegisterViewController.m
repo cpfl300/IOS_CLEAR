@@ -46,4 +46,16 @@
 }
 */
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    UIImageView *imageView = [[UIImageView alloc]
+                              initWithFrame:CGRectMake(0,0,35,35)];
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    imageView.clipsToBounds = NO;
+    imageView.image = [UIImage imageNamed:@"logo.png"];
+    self.navigationItem.titleView = imageView;
+}
+
 @end
