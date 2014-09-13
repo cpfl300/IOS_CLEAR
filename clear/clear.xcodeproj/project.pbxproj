@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4555482B19C41D6600629874 /* TodayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4555482A19C41D6600629874 /* TodayTableViewCell.m */; };
+		4555482E19C43A0100629874 /* ListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4555482D19C43A0100629874 /* ListTableViewController.m */; };
+		4555483119C43C7400629874 /* ListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4555483019C43C7400629874 /* ListTableViewCell.m */; };
 		457C70B919C318460057DBC5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 457C70B819C318460057DBC5 /* Foundation.framework */; };
 		457C70BB19C318460057DBC5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 457C70BA19C318460057DBC5 /* CoreGraphics.framework */; };
 		457C70BD19C318460057DBC5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 457C70BC19C318460057DBC5 /* UIKit.framework */; };
@@ -28,6 +31,8 @@
 		457C70FE19C31E170057DBC5 /*  mainLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 457C70FC19C31E170057DBC5 /*  mainLogo.png */; };
 		457C70FF19C31E170057DBC5 /* growing-plants.png in Resources */ = {isa = PBXBuildFile; fileRef = 457C70FD19C31E170057DBC5 /* growing-plants.png */; };
 		457C710119C323490057DBC5 /* bigBlueCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 457C710019C323490057DBC5 /* bigBlueCircle.png */; };
+		4586E2CE19C333060086982A /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4586E2CD19C333060086982A /* RegisterViewController.m */; };
+		4586E2D119C3ED3F0086982A /* TodayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4586E2D019C3ED3F0086982A /* TodayTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +46,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4555482919C41D6600629874 /* TodayTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodayTableViewCell.h; sourceTree = "<group>"; };
+		4555482A19C41D6600629874 /* TodayTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodayTableViewCell.m; sourceTree = "<group>"; };
+		4555482C19C43A0100629874 /* ListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListTableViewController.h; sourceTree = "<group>"; };
+		4555482D19C43A0100629874 /* ListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListTableViewController.m; sourceTree = "<group>"; };
+		4555482F19C43C7400629874 /* ListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListTableViewCell.h; sourceTree = "<group>"; };
+		4555483019C43C7400629874 /* ListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListTableViewCell.m; sourceTree = "<group>"; };
 		457C70B519C318460057DBC5 /* clear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = clear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		457C70B819C318460057DBC5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		457C70BA19C318460057DBC5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -67,6 +78,10 @@
 		457C70FC19C31E170057DBC5 /*  mainLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = " mainLogo.png"; path = "clear/images/ mainLogo.png"; sourceTree = "<group>"; };
 		457C70FD19C31E170057DBC5 /* growing-plants.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "growing-plants.png"; path = "clear/images/growing-plants.png"; sourceTree = "<group>"; };
 		457C710019C323490057DBC5 /* bigBlueCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bigBlueCircle.png; path = clear/images/bigBlueCircle.png; sourceTree = "<group>"; };
+		4586E2CC19C333060086982A /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		4586E2CD19C333060086982A /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		4586E2CF19C3ED3F0086982A /* TodayTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodayTableViewController.h; sourceTree = "<group>"; };
+		4586E2D019C3ED3F0086982A /* TodayTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodayTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +145,16 @@
 				457C70C719C318460057DBC5 /* AppDelegate.h */,
 				457C70C819C318460057DBC5 /* AppDelegate.m */,
 				457C70CA19C318460057DBC5 /* Main.storyboard */,
+				4555482F19C43C7400629874 /* ListTableViewCell.h */,
+				4555483019C43C7400629874 /* ListTableViewCell.m */,
+				4555482C19C43A0100629874 /* ListTableViewController.h */,
+				4555482D19C43A0100629874 /* ListTableViewController.m */,
+				4555482919C41D6600629874 /* TodayTableViewCell.h */,
+				4555482A19C41D6600629874 /* TodayTableViewCell.m */,
+				4586E2CF19C3ED3F0086982A /* TodayTableViewController.h */,
+				4586E2D019C3ED3F0086982A /* TodayTableViewController.m */,
+				4586E2CC19C333060086982A /* RegisterViewController.h */,
+				4586E2CD19C333060086982A /* RegisterViewController.m */,
 				457C70CD19C318460057DBC5 /* ViewController.h */,
 				457C70CE19C318460057DBC5 /* ViewController.m */,
 				457C70D019C318460057DBC5 /* Images.xcassets */,
@@ -287,7 +312,12 @@
 			files = (
 				457C70CF19C318460057DBC5 /* ViewController.m in Sources */,
 				457C70C919C318460057DBC5 /* AppDelegate.m in Sources */,
+				4586E2D119C3ED3F0086982A /* TodayTableViewController.m in Sources */,
+				4555482E19C43A0100629874 /* ListTableViewController.m in Sources */,
+				4555482B19C41D6600629874 /* TodayTableViewCell.m in Sources */,
+				4555483119C43C7400629874 /* ListTableViewCell.m in Sources */,
 				457C70C519C318460057DBC5 /* main.m in Sources */,
+				4586E2CE19C333060086982A /* RegisterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +522,7 @@
 				457C70E919C318460057DBC5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		457C70EA19C318470057DBC5 /* Build configuration list for PBXNativeTarget "clearTests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +531,7 @@
 				457C70EC19C318470057DBC5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
