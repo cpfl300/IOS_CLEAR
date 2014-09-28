@@ -10,29 +10,29 @@
 	<string>clear</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>8F1ED22C-837C-4124-903A-2DA5D5FC38F3</key>
+		<key>638830BDDED932AAB7C0D1347512B86F9B33A321</key>
 		<string>https://github.com/cpfl300/IOS_CLEAR.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>clear/clear.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>8F1ED22C-837C-4124-903A-2DA5D5FC38F3</key>
+		<key>638830BDDED932AAB7C0D1347512B86F9B33A321</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/cpfl300/IOS_CLEAR.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>8F1ED22C-837C-4124-903A-2DA5D5FC38F3</string>
+	<string>638830BDDED932AAB7C0D1347512B86F9B33A321</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>8F1ED22C-837C-4124-903A-2DA5D5FC38F3</string>
+			<string>638830BDDED932AAB7C0D1347512B86F9B33A321</string>
 			<key>IDESourceControlWCCName</key>
 			<string>IOS_CLEAR</string>
 		</dict>
