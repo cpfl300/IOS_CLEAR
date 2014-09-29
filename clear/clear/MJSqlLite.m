@@ -148,10 +148,6 @@
     if(sqlite3_exec(_feedDb, [insertSqlStatement UTF8String], NULL, NULL, &insertError) == SQLITE_OK){
         [self clearToday];
         [self setTodayData];
-//        list에 있는 컬럼을 select * 한다
-//        조건에 맞는 것
-//        1. 날짜가 사이에 있음 2. 요일 해당이 있음
-//        을 찾아서 today 테이블에 insert한다.
 
     } else {
         NSLog(@"Error: %s", insertError);
@@ -251,25 +247,20 @@
 
 -(void)clearToday{
     NSString *today = [self getTodayAtFormat:@"YYYY-MM-dd"];
-
-    // 오늘 날짜를 받아온다.
-    // today 테이블의 컬럼을 하나 읽는다.
-    //        컬럼이 null 이면 pass 오늘 날짜와 다른 경우 delete from today;
-    
     NSString *tableDate = [[NSString alloc]init];
     NSString *queryStatement = [NSString stringWithFormat:@"SELECT * FROM today limit 1"];
     sqlite3_stmt *statement;
     
     if (sqlite3_prepare_v2(_feedDb, [queryStatement UTF8String], -1, &statement, NULL) == SQLITE_OK){
         while (sqlite3_step(statement) == SQLITE_ROW) {
-            tableDate = [NSString stringWithUTF8String:(char*)sqlite3_column_text(statement, 0)];
+            tableDate = [NSString stringWithUTF8String:(char*)sqlite3_column_text(statement, 2)];
         }
         sqlite3_finalize(statement);
     }
     
     if([tableDate isEqualToString:@""]){
         return;
-    } else if(today != tableDate){
+    } else if(![today isEqualToString:tableDate]){
         //  delete today table
         const char *delSqlStatement = "DELETE FROM today";
         char* delError;
@@ -288,7 +279,7 @@
     NSString *todayWeek = [[self getDayOfWeek]stringByReplacingOccurrencesOfString:@"요일" withString:@""];
     
     
-    NSString *queryStatement = [NSString stringWithFormat:@"select * from list where start <= %@ <= end", today];
+    NSString *queryStatement = [NSString stringWithFormat:@"select * from list where start <= \'%@\' <= end", today];
     sqlite3_stmt *statement;
     if(sqlite3_prepare_v2(_feedDb, [queryStatement UTF8String], -1, &statement, NULL) == SQLITE_OK){
         while (sqlite3_step(statement) == SQLITE_ROW) {
@@ -296,7 +287,8 @@
             NSString *title = [NSString stringWithUTF8String:(char*)sqlite3_column_text(statement, 0)];
             NSMutableArray* weeks = [week componentsSeparatedByString:@","];
             for(int i = 0 ; i < weeks.count; i++){
-                if([[weeks objectAtIndex:i] isEqualToString:todayWeek]){
+                
+                if([[[weeks objectAtIndex:i]stringByReplacingOccurrencesOfString:@" " withString:@""]  isEqualToString:todayWeek]){
                     NSString* stringSql = [NSString stringWithFormat:@"INSERT INTO today values (\"%@\", 0, \"%@\")", title, today];
                     
                     const char *insertSqlStatement = [stringSql UTF8String];
@@ -313,13 +305,54 @@
         }
         sqlite3_finalize(statement);
     }
-    
 
-    //        list에 있는 컬럼을 select * 한다
-    //        조건에 맞는 것
-    //        1. 날짜가 사이에 있음 2. 요일 해당이 있음
-    //        을 찾아서 today 테이블에 insert한다.
 }
 
+-(BOOL)todayTapped:(NSString*)title{
+    NSInteger result;
+    NSString *queryStatement = [NSString stringWithFormat:@"SELECT DO FROM today where TITLE=\"%@\"", title];
+    sqlite3_stmt *statement;
+    
+    if (sqlite3_prepare_v2(_feedDb, [queryStatement UTF8String], -1, &statement, NULL) == SQLITE_OK){
+        while (sqlite3_step(statement) == SQLITE_ROW) {
+            result = sqlite3_column_int(statement, 0);
+        }
+        sqlite3_finalize(statement);
+    }
+    
+    NSInteger changeDo;
+    if(result == 0){
+        changeDo = 1;
+    } else if(result == 1){
+        changeDo = 0;
+    }
+    
+    NSString *replaceStatement = [NSString stringWithFormat:@"UPDATE today SET DO = %ld WHERE TITLE = \"%@\"", (long)changeDo, title];
+
+    char *error;
+    if(sqlite3_exec(_feedDb, [replaceStatement UTF8String], NULL, NULL, &error) == SQLITE_OK){
+        NSLog(@"today's DO changed");
+    } else {
+        NSLog(@"Error: %s", error);
+    }
+
+
+    return changeDo;
+}
+
+-(BOOL)getTappedInfo:(NSString*)title{
+    NSInteger result;
+    NSString *queryStatement = [NSString stringWithFormat:@"SELECT * FROM today where TITLE=\"%@\"", title];
+    sqlite3_stmt *statement;
+    
+    if (sqlite3_prepare_v2(_feedDb, [queryStatement UTF8String], -1, &statement, NULL) == SQLITE_OK){
+        while (sqlite3_step(statement) == SQLITE_ROW) {
+            result = sqlite3_column_int(statement, 1);
+        }
+        sqlite3_finalize(statement);
+    }
+    
+    return result;
+}
 
 @end

@@ -27,6 +27,8 @@
 - (NSString*)getDayOfWeek;
 -(void)clearToday;
 -(void)setTodayData;
+-(BOOL)todayTapped:(NSString*)title;
+-(BOOL)getTappedInfo:(NSString*)title;
 
 //initialize
 -(void)makeTable;

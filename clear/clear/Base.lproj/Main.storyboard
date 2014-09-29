@@ -111,7 +111,7 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="todayCell" rowHeight="66" id="3hb-aP-QHN" customClass="TodayTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="todayCell" rowHeight="66" id="3hb-aP-QHN" customClass="TodayTableViewCell">
                                 <rect key="frame" x="0.0" y="164" width="320" height="66"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3hb-aP-QHN" id="AfN-jp-C9M">
@@ -497,7 +497,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="MOs-Qc-67B"/>
+        <segue reference="dDN-MQ-n3o"/>
         <segue reference="gaV-gw-3yo"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.74901962280273438" green="0.74901962280273438" blue="0.74901962280273438" alpha="1" colorSpace="deviceRGB"/>

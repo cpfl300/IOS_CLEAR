@@ -111,7 +111,7 @@
     cell.todo.text = [todo title];
     
     
-    if([todo complete] == 0){
+    if(![sql getTappedInfo:[todo title]]){
         cell.todoImg.image = [UIImage imageNamed:@"pinkCircle.png"];
         cell.todo.textColor = [UIColor colorWithRed:241.0/255.0 green:112.0/255.0 blue:104.0/255.0 alpha:1.0];
     }else{
@@ -123,7 +123,33 @@
     return cell;
 }
 
-
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    TodayTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"todayCell" forIndexPath:indexPath];
+    
+    TodayTodo *todo = [_todayTodos objectAtIndex:indexPath.row];
+    cell.todo.text = [todo title];
+    
+    if([sql todayTapped:[todo title]]){
+        cell.todoImg.image = [UIImage imageNamed:@"pinkCircle.png"];
+//        cell.todo.textColor = [UIColor colorWithRed:241.0/255.0 green:112.0/255.0 blue:104.0/255.0 alpha:1.0];
+        cell.todo.textColor = [UIColor redColor];
+    }else{
+        cell.todoImg.image = [UIImage imageNamed:@"blueCircle.png"];
+        cell.todo.textColor = [UIColor colorWithRed:74.0/255.0 green:93.0/255.0 blue:226.0/255.0 alpha:1.0];
+    }
+    
+    [self.tableView reloadData];
+    
+    
+//    [cell isHighlighted];
+//    if([cell isSelected]){
+//        cell.todoImg.image = [UIImage imageNamed:@"blueCircle.png"];
+//        cell.todo.textColor = [UIColor colorWithRed:74.0/255.0 green:93.0/255.0 blue:226.0/255.0 alpha:1.0];
+//    } else {
+//        cell.todoImg.image = [UIImage imageNamed:@"pinkCircle.png"];
+//        cell.todo.textColor = [UIColor colorWithRed:241.0/255.0 green:112.0/255.0 blue:104.0/255.0 alpha:1.0];
+//    }
+}
 
 
 /*
