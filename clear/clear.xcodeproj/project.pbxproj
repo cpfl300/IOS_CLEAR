@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		453578EC19D8C357009F7096 /* MJSqlLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 453578EB19D8C357009F7096 /* MJSqlLite.m */; };
+		453578F119D97509009F7096 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 453578F019D97509009F7096 /* libsqlite3.dylib */; };
 		4555482B19C41D6600629874 /* TodayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4555482A19C41D6600629874 /* TodayTableViewCell.m */; };
 		4555482E19C43A0100629874 /* ListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4555482D19C43A0100629874 /* ListTableViewController.m */; };
 		4555483119C43C7400629874 /* ListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4555483019C43C7400629874 /* ListTableViewCell.m */; };
+		456D78E719D9C87D001BD2B3 /* ListTodo.m in Sources */ = {isa = PBXBuildFile; fileRef = 456D78E619D9C87D001BD2B3 /* ListTodo.m */; };
+		456D78EA19D9D363001BD2B3 /* TodayTodo.m in Sources */ = {isa = PBXBuildFile; fileRef = 456D78E919D9D363001BD2B3 /* TodayTodo.m */; };
 		457C70B919C318460057DBC5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 457C70B819C318460057DBC5 /* Foundation.framework */; };
 		457C70BB19C318460057DBC5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 457C70BA19C318460057DBC5 /* CoreGraphics.framework */; };
 		457C70BD19C318460057DBC5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 457C70BC19C318460057DBC5 /* UIKit.framework */; };
@@ -48,12 +52,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		453578EA19D8C357009F7096 /* MJSqlLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJSqlLite.h; sourceTree = "<group>"; };
+		453578EB19D8C357009F7096 /* MJSqlLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJSqlLite.m; sourceTree = "<group>"; };
+		453578ED19D93D9B009F7096 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
+		453578EE19D93D9B009F7096 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		453578EF19D93D9B009F7096 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		453578F019D97509009F7096 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		4555482919C41D6600629874 /* TodayTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodayTableViewCell.h; sourceTree = "<group>"; };
 		4555482A19C41D6600629874 /* TodayTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodayTableViewCell.m; sourceTree = "<group>"; };
 		4555482C19C43A0100629874 /* ListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListTableViewController.h; sourceTree = "<group>"; };
 		4555482D19C43A0100629874 /* ListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListTableViewController.m; sourceTree = "<group>"; };
 		4555482F19C43C7400629874 /* ListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListTableViewCell.h; sourceTree = "<group>"; };
 		4555483019C43C7400629874 /* ListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListTableViewCell.m; sourceTree = "<group>"; };
+		456D78E519D9C87D001BD2B3 /* ListTodo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListTodo.h; sourceTree = "<group>"; };
+		456D78E619D9C87D001BD2B3 /* ListTodo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListTodo.m; sourceTree = "<group>"; };
+		456D78E819D9D363001BD2B3 /* TodayTodo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodayTodo.h; sourceTree = "<group>"; };
+		456D78E919D9D363001BD2B3 /* TodayTodo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodayTodo.m; sourceTree = "<group>"; };
 		457C70B519C318460057DBC5 /* clear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = clear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		457C70B819C318460057DBC5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		457C70BA19C318460057DBC5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -93,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				453578F119D97509009F7096 /* libsqlite3.dylib in Frameworks */,
 				457C70BB19C318460057DBC5 /* CoreGraphics.framework in Frameworks */,
 				457C70BD19C318460057DBC5 /* UIKit.framework in Frameworks */,
 				457C70B919C318460057DBC5 /* Foundation.framework in Frameworks */,
@@ -135,6 +150,7 @@
 		457C70B719C318460057DBC5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				453578F019D97509009F7096 /* libsqlite3.dylib */,
 				457C70B819C318460057DBC5 /* Foundation.framework */,
 				457C70BA19C318460057DBC5 /* CoreGraphics.framework */,
 				457C70BC19C318460057DBC5 /* UIKit.framework */,
@@ -163,6 +179,12 @@
 				457C70CE19C318460057DBC5 /* ViewController.m */,
 				457C70D019C318460057DBC5 /* Images.xcassets */,
 				457C70BF19C318460057DBC5 /* Supporting Files */,
+				453578EA19D8C357009F7096 /* MJSqlLite.h */,
+				453578EB19D8C357009F7096 /* MJSqlLite.m */,
+				456D78E519D9C87D001BD2B3 /* ListTodo.h */,
+				456D78E619D9C87D001BD2B3 /* ListTodo.m */,
+				456D78E819D9D363001BD2B3 /* TodayTodo.h */,
+				456D78E919D9D363001BD2B3 /* TodayTodo.m */,
 			);
 			path = clear;
 			sourceTree = "<group>";
@@ -271,6 +293,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = 457C70AC19C318460057DBC5;
 			productRefGroup = 457C70B619C318460057DBC5 /* Products */;
@@ -321,11 +344,14 @@
 				457C70CF19C318460057DBC5 /* ViewController.m in Sources */,
 				457C70C919C318460057DBC5 /* AppDelegate.m in Sources */,
 				4586E2D119C3ED3F0086982A /* TodayTableViewController.m in Sources */,
+				456D78E719D9C87D001BD2B3 /* ListTodo.m in Sources */,
 				4555482E19C43A0100629874 /* ListTableViewController.m in Sources */,
+				453578EC19D8C357009F7096 /* MJSqlLite.m in Sources */,
 				4555482B19C41D6600629874 /* TodayTableViewCell.m in Sources */,
 				4555483119C43C7400629874 /* ListTableViewCell.m in Sources */,
 				457C70C519C318460057DBC5 /* main.m in Sources */,
 				4586E2CE19C333060086982A /* RegisterViewController.m in Sources */,
+				456D78EA19D9D363001BD2B3 /* TodayTodo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +378,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				457C70C219C318460057DBC5 /* en */,
+				453578EE19D93D9B009F7096 /* ko */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -360,6 +387,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				457C70CB19C318460057DBC5 /* Base */,
+				453578ED19D93D9B009F7096 /* ko */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -368,6 +396,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				457C70E119C318460057DBC5 /* en */,
+				453578EF19D93D9B009F7096 /* ko */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

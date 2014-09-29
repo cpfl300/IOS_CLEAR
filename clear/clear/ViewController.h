@@ -11,7 +11,6 @@
 @interface ViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *pwd;
 
-@property (weak, nonatomic) IBOutlet UILabel *pwdLabel;
 @property (weak, nonatomic) IBOutlet UITextField *oldPwd;
 @property (weak, nonatomic) IBOutlet UITextField *latestPwd;
 

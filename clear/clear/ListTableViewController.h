@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ListTableViewController : UITableViewController
+@property (weak, nonatomic) IBOutlet UIView *listEmpty;
+@property NSMutableArray* listTodos;
 
 @end

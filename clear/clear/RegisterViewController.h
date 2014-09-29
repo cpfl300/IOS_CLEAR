@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RegisterViewController : UIViewController
+@interface RegisterViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *todo;
 @property (weak, nonatomic) IBOutlet UILabel *startDate;
 @property (weak, nonatomic) IBOutlet UILabel *endDate;

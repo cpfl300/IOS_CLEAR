@@ -1,0 +1,87 @@
+
+/* Class = "IBUIButton"; normalTitle = "토"; ObjectID = "068-bO-bGZ"; */
+"068-bO-bGZ.normalTitle" = "토";
+
+/* Class = "IBUILabel"; text = " 비밀번호 변경하기"; ObjectID = "1Vq-eg-Twf"; */
+"1Vq-eg-Twf.text" = " 비밀번호 변경하기";
+
+/* Class = "IBUILabel"; text = "시작일"; ObjectID = "3cv-BC-g2N"; */
+"3cv-BC-g2N.text" = "시작일";
+
+/* Class = "IBUILabel"; text = "종료일"; ObjectID = "3i0-yy-RHE"; */
+"3i0-yy-RHE.text" = "종료일";
+
+/* Class = "IBUIButton"; normalTitle = "금"; ObjectID = "4lX-vl-oZf"; */
+"4lX-vl-oZf.normalTitle" = "금";
+
+/* Class = "IBUIButton"; normalTitle = "ADD"; ObjectID = "8T6-p4-Flh"; */
+"8T6-p4-Flh.normalTitle" = "ADD";
+
+/* Class = "IBUILabel"; text = "요일"; ObjectID = "HBh-4J-Xsd"; */
+"HBh-4J-Xsd.text" = "요일";
+
+/* Class = "IBUIButton"; normalTitle = "월"; ObjectID = "JH7-Pl-JA6"; */
+"JH7-Pl-JA6.normalTitle" = "월";
+
+/* Class = "IBUILabel"; text = "click"; ObjectID = "MNr-RZ-yQ6"; */
+"MNr-RZ-yQ6.text" = "click";
+
+/* Class = "IBUILabel"; text = "click"; ObjectID = "MeU-vq-XaH"; */
+"MeU-vq-XaH.text" = "click";
+
+/* Class = "IBUIButton"; normalTitle = "Cancel"; ObjectID = "NAe-TE-WVS"; */
+"NAe-TE-WVS.normalTitle" = "Cancel";
+
+/* Class = "IBUIButton"; normalTitle = "목"; ObjectID = "PsA-tL-LMk"; */
+"PsA-tL-LMk.normalTitle" = "목";
+
+/* Class = "IBUILabel"; text = "9/11 목요일"; ObjectID = "Pum-am-4GS"; */
+"Pum-am-4GS.text" = "9/11 목요일";
+
+/* Class = "IBUITextField"; placeholder = "비밀번호를 입력"; ObjectID = "Qhm-H8-baC"; */
+"Qhm-H8-baC.placeholder" = "비밀번호를 입력";
+
+/* Class = "IBUIButton"; normalTitle = "Done"; ObjectID = "QqR-88-5Yz"; */
+"QqR-88-5Yz.normalTitle" = "Done";
+
+/* Class = "IBUILabel"; text = "월 화 수 목 금 토 일"; ObjectID = "S6k-cv-2jy"; */
+"S6k-cv-2jy.text" = "월 화 수 목 금 토 일";
+
+/* Class = "IBUILabel"; text = "할일"; ObjectID = "Wih-ha-1kn"; */
+"Wih-ha-1kn.text" = "할일";
+
+/* Class = "IBUITextField"; placeholder = "기존 비밀번호 입력"; ObjectID = "a1w-UP-oAq"; */
+"a1w-UP-oAq.placeholder" = "기존 비밀번호 입력";
+
+/* Class = "IBUITextField"; placeholder = "할일을 입력해주세요!"; ObjectID = "csq-Cy-gte"; */
+"csq-Cy-gte.placeholder" = "할일을 입력해주세요!";
+
+/* Class = "IBUILabel"; text = "2014. 9. 1 - 2014. 10. 1"; ObjectID = "dtd-GL-Qe4"; */
+"dtd-GL-Qe4.text" = "2014. 9. 1 - 2014. 10. 1";
+
+/* Class = "IBUILabel"; text = "할일 등록하기"; ObjectID = "hUI-UJ-8pJ"; */
+"hUI-UJ-8pJ.text" = "할일 등록하기";
+
+/* Class = "IBUIButton"; normalTitle = "변경"; ObjectID = "hvU-Pn-zo7"; */
+"hvU-Pn-zo7.normalTitle" = "변경";
+
+/* Class = "IBUIButton"; normalTitle = "화"; ObjectID = "jF2-it-HQH"; */
+"jF2-it-HQH.normalTitle" = "화";
+
+/* Class = "IBUITextField"; placeholder = "새로운 비밀번호 입력"; ObjectID = "lmz-cb-ctv"; */
+"lmz-cb-ctv.placeholder" = "새로운 비밀번호 입력";
+
+/* Class = "IBUIButton"; normalTitle = "수"; ObjectID = "mCu-8A-ETY"; */
+"mCu-8A-ETY.normalTitle" = "수";
+
+/* Class = "IBUILabel"; text = "IOS 1시간 코딩하기"; ObjectID = "pQp-za-tPQ"; */
+"pQp-za-tPQ.text" = "IOS 1시간 코딩하기";
+
+/* Class = "IBUILabel"; text = "IOS 1시간 코딩하기"; ObjectID = "piG-jD-dcZ"; */
+"piG-jD-dcZ.text" = "IOS 1시간 코딩하기";
+
+/* Class = "IBUIButton"; normalTitle = "일"; ObjectID = "rC9-Op-aWU"; */
+"rC9-Op-aWU.normalTitle" = "일";
+
+/* Class = "IBUIButton"; normalTitle = "GO"; ObjectID = "wSO-0S-39w"; */
+"wSO-0S-39w.normalTitle" = "GO";

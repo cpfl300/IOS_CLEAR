@@ -13,4 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addBtn;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *listBtn;
 
+@property (weak, nonatomic) IBOutlet UIView *todayEmpty;
+@property NSMutableArray* todayTodos;
+
 @end

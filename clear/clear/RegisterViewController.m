@@ -7,6 +7,7 @@
 //
 
 #import "RegisterViewController.h"
+#import "MJSqlLite.h"
 
 @interface RegisterViewController ()
 
@@ -63,12 +64,13 @@
     self.navigationItem.titleView = imageView;
 }
 
-- (IBAction)register:(id)sender {
+- (BOOL) resiveData{
     
     NSMutableArray *aCheckedWeeks = [self getWeek];
     if([_todo.text length] == 0 || [_startDate.text isEqualToString:@"click"] || [_endDate.text isEqualToString:@"click"] || [aCheckedWeeks count] == 0){
-        //alert view 입력되지 않은 항목이 있습니다 :(
-        return;
+        
+         [[[UIAlertView alloc] initWithTitle:@"입력되지 않은 항목이 있습니다 :(" message:@"" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil]show];
+        return NO;
     }
     
     NSMutableString *week = [[NSMutableString alloc]init];
@@ -80,10 +82,10 @@
         }
     }
     
-    NSLog(@"%@", _todo.text);
-    NSLog(@"%@", _startDate.text);
-    NSLog(@"%@", _endDate.text);
-    NSLog(@"%@", week);
+    MJSqlLite *sql = [[MJSqlLite alloc]init];
+    [sql makeTable];
+    [sql addTodo:_todo.text start:_startDate.text end:_endDate.text at:week];
+    return YES;
 }
 
 -(NSMutableArray *)getWeek{
@@ -128,7 +130,7 @@
     NSMutableArray *days = [[NSMutableArray alloc] init];
     
     for(int i = 1; i <= 31; i++){
-        [days addObject: [NSString stringWithFormat:@"%d", i]];
+        [days addObject: [[NSMutableString stringWithFormat:@"%d", i] stringByAppendingString:@"일" ]];
         
     }
     
@@ -142,12 +144,13 @@
     NSString *dateString = [dateFormat stringFromDate:today];
     
     for(int i = 0; i < 10; i++){
-        [years addObject: [NSString stringWithFormat:@"%d", [dateString intValue]+i]];
+        [years addObject: [[NSString stringWithFormat:@"%d", [dateString intValue]+i] stringByAppendingString:@"년"]];
     }
     
     _year = years;
     _month = months;
     _day = days;
+    
 }
 
 -(void)pickerInitWithLabel{
@@ -193,7 +196,8 @@
 }
 
 - (IBAction)done:(id)sender {
-    tappedLabal.text = [NSString stringWithFormat:@"%@년 %@ %@일", _year[[_picker selectedRowInComponent:0]], _month[[_picker selectedRowInComponent:1]], _day[[_picker selectedRowInComponent:2]]];
+    [tappedLabal setTextColor:[UIColor blackColor]];
+    tappedLabal.text = [NSString stringWithFormat:@"%@ %@ %@", _year[[_picker selectedRowInComponent:0]], _month[[_picker selectedRowInComponent:1]], _day[[_picker selectedRowInComponent:2]]];
     
 //    tappedLabel 에 정보 쓰기
     [UIView beginAnimations:nil context:nil];
@@ -227,6 +231,20 @@
     } else {
         return [_day count];
     }
+}
+
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    if (component==0)
+    {
+        return  [_year objectAtIndex:row];
+    }
+    else
+        if (component==1)
+        {
+            return  [_month objectAtIndex:row];
+        }
+    return [_day objectAtIndex:row];
 }
 
 #pragma mark -
@@ -266,5 +284,9 @@
     button.selected = !button.selected;
 }
 
-
+//resiveData
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    return [self resiveData];
+}
 @end

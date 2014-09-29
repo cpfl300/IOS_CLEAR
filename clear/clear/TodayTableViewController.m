@@ -9,12 +9,17 @@
 #import "TodayTableViewController.h"
 #import "TodayTableViewCell.h"
 #import "RegisterViewController.h"
+#import "MJSqlLite.h"
+#import "TodayTodo.h"
 
 @interface TodayTableViewController ()
 
 @end
 
 @implementation TodayTableViewController
+{
+    MJSqlLite *sql;
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -73,68 +78,52 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 #warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 1;
+    sql = [[MJSqlLite alloc]init];
+    [sql makeTable];
+    [sql clearToday];
+    [sql setTodayData];
+    
+    int num = [sql getTodayTodoNum];
+    
+    if(num == 0){
+        _todayEmpty.hidden = NO;
+    }else{
+        _todayEmpty.hidden = YES;
+    }
+    
+    _todayTodos = [sql getTodayTodo];
+    return num;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TodayTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"todayCell" forIndexPath:indexPath];
-    
-    NSDate *today = [NSDate date];
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"MM/dd"];
-    NSString *dateString = [dateFormat stringFromDate:today];
-    _date.text = [[dateString stringByAppendingString:@" "] stringByAppendingString:[self _getDayOfWeek]];
 
-//       cell.todo = @"IOS!?";
-//    cell.todoImg = [UIImage imageNamed:@"greenCircle.png"];
+    NSString *dateString = [sql getTodayAtFormat:@"MM/dd"];
+    _date.text = [[dateString stringByAppendingString:@" "] stringByAppendingString:[sql getDayOfWeek]];
     
     cell.layer.borderWidth = 2.0;
     cell.layer.borderColor = [UIColor colorWithRed:227.0/255.0 green:226.0/255.0 blue:226.0/255.0 alpha:1.0].CGColor;
     
     tableView.layer.backgroundColor = [UIColor colorWithRed:238.0/255.0 green:238.0/255.0 blue:238.0/255.0 alpha:1.0].CGColor;
+    
+    TodayTodo *todo = [_todayTodos objectAtIndex:indexPath.row];
+    cell.todo.text = [todo title];
+    
+    
+    if([todo complete] == 0){
+        cell.todoImg.image = [UIImage imageNamed:@"pinkCircle.png"];
+        cell.todo.textColor = [UIColor colorWithRed:241.0/255.0 green:112.0/255.0 blue:104.0/255.0 alpha:1.0];
+    }else{
+        cell.todoImg.image = [UIImage imageNamed:@"blueCircle.png"];
+        cell.todo.textColor = [UIColor colorWithRed:74.0/255.0 green:93.0/255.0 blue:226.0/255.0 alpha:1.0];
+    }
+    
+    
     return cell;
 }
 
-- (NSString*)_getDayOfWeek
-{
-    NSTimeInterval timeStamp = [[NSDate date] timeIntervalSince1970];
-    NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeStamp];
-    
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDateComponents *weekDayComponents = [gregorian components:NSWeekdayCalendarUnit fromDate:date];
-    
-    int week = [weekDayComponents weekday];
-    NSString* weekStr;
-    switch (week) {
-        case 1:
-            weekStr = @"일요일";
-            break;
-        case 2:
-            weekStr = @"월요일";
-            break;
-        case 3:
-            weekStr = @"화요일";
-            break;
-        case 4:
-            weekStr = @"수요일";
-            break;
-        case 5:
-            weekStr = @"목요일";
-            break;
-        case 6:
-            weekStr = @"금요일";
-            break;
-        case 7:
-            weekStr = @"토요일";
-            break;
-        default:
-            break;
-    }
-    
-    return weekStr;
-}
+
 
 
 /*

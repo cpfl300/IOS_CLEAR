@@ -8,12 +8,17 @@
 
 #import "ListTableViewController.h"
 #import "ListTableViewCell.h"
+#import "MJSqlLite.h"
+#import "ListTodo.h"
 
 @interface ListTableViewController ()
 
 @end
 
 @implementation ListTableViewController
+{
+    MJSqlLite *sql;
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -34,6 +39,7 @@
     UIImage *newImg = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     self.navigationItem.rightBarButtonItem.image = newImg;
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -55,7 +61,18 @@
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 1;
+    sql = [[MJSqlLite alloc]init];
+    [sql makeTable];
+    int num = [sql getListTodoNum];
+    if(num == 0){
+        _listEmpty.hidden = NO;
+    }else{
+        _listEmpty.hidden = YES;
+    }
+    
+    _listTodos = [sql getListTodo];
+    
+    return num;
 }
 
 
@@ -67,10 +84,22 @@
     cell.layer.borderColor = [UIColor colorWithRed:227.0/255.0 green:226.0/255.0 blue:226.0/255.0 alpha:1.0].CGColor;
     
     tableView.layer.backgroundColor = [UIColor colorWithRed:238.0/255.0 green:238.0/255.0 blue:238.0/255.0 alpha:1.0].CGColor;
+    
+    ListTodo *todo = [_listTodos objectAtIndex:indexPath.row];
+    
+    NSString *startDate = [todo start];
+    startDate = [startDate stringByReplacingOccurrencesOfString:@"-" withString:@"."];
+    NSString *endDate = [todo end];
+    endDate = [endDate stringByReplacingOccurrencesOfString:@"-" withString:@"."];
+    
+    NSString *date = [[NSString alloc]initWithFormat:@"%@ - %@", startDate, endDate];
+    
+        cell.todo.text = [todo title];
+        cell.todoDate.text = date;
+        cell.todoWeek.text = [todo week];
 
     return cell;
 }
-
 
 /*
 // Override to support conditional editing of the table view.

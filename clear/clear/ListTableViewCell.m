@@ -15,6 +15,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
+        _todoImg.image = [UIImage imageNamed:@"greenCircle.png"];
     }
     return self;
 }
