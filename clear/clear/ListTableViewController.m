@@ -10,6 +10,7 @@
 #import "ListTableViewCell.h"
 #import "MJSqlLite.h"
 #import "ListTodo.h"
+#import "RegisterViewController.h"
 
 @interface ListTableViewController ()
 
@@ -161,5 +162,29 @@
     imageView.image = [UIImage imageNamed:@"logo.png"];
     self.navigationItem.titleView = imageView;
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    if([sender class] == NSClassFromString(@"ListTableViewCell")){
+        RegisterViewController *next = [segue.destinationViewController viewControllers][0];
+        NSIndexPath *indexpath = [self.tableView indexPathForSelectedRow];
+        ListTableViewCell *cell = sender;
+        
+        NSMutableDictionary *preparedData = [[NSMutableDictionary alloc]init];
+        [preparedData setObject:cell.todo.text forKey:@"todo"];
+        NSArray* startEnd = [cell.todoDate.text componentsSeparatedByString:@" - "];
+        [preparedData setObject:[[startEnd objectAtIndex:0] stringByReplacingOccurrencesOfString:@"." withString:@"-"] forKey:@"start"];
+        [preparedData setObject:[[startEnd objectAtIndex:1] stringByReplacingOccurrencesOfString:@"." withString:@"-"] forKey:@"end"];
+        [preparedData setObject:cell.todoWeek.text forKey:@"week"];
+        
+        next.selectedData = preparedData;
+        
+    }
+}
+
+//-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+//    NSLog(@"%@", identifier);
+//    return YES;
+//}
 
 @end

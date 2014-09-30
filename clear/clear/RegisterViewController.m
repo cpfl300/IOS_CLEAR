@@ -16,6 +16,7 @@
 @implementation RegisterViewController
 {
     UILabel *tappedLabal;
+    MJSqlLite *sql;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -32,7 +33,36 @@
     [super viewDidLoad];
     [self setPickerData];
     [self pickerInitWithLabel];
-    // Do any additional setup after loading the view.
+    if(_selectedData != NULL){
+        _modiTitle.text = @"TODO 변경하기";
+        _todo.text = [_selectedData objectForKeyedSubscript:@"todo"];
+        [_todo setUserInteractionEnabled:NO];
+        _startDate.text = [_selectedData objectForKeyedSubscript:@"start"];
+        _endDate.text = [_selectedData objectForKeyedSubscript:@"end"];
+        NSString *weeks = [_selectedData objectForKeyedSubscript:@"week"];
+        NSArray* seperated = [weeks componentsSeparatedByString:@","];
+        NSMutableArray* btnweeks = [[NSMutableArray alloc]init];
+        [btnweeks addObject:_mon];
+        [btnweeks addObject:_tue];
+        [btnweeks addObject:_wed];
+        [btnweeks addObject:_thu];
+        [btnweeks addObject:_fri];
+        [btnweeks addObject:_sat];
+
+        [btnweeks addObject:_sun];
+        
+        for(int i = 0; i < seperated.count; i++){
+            for(int j = 0; j <btnweeks.count; j++){
+                if([[[seperated objectAtIndex:i]stringByReplacingOccurrencesOfString:@" " withString:@""]isEqualToString:[[btnweeks objectAtIndex:j] titleLabel].text]){
+                    [[btnweeks objectAtIndex:j] setSelected:YES];
+                }
+            }
+        }
+        
+        _delButton.hidden = NO;
+        [_addBtn setTitle:@"Modify" forState:UIControlStateNormal];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -64,6 +94,45 @@
     self.navigationItem.titleView = imageView;
 }
 
+-(BOOL) convertData{
+    
+    NSMutableDictionary *preparedData = [[NSMutableDictionary alloc]init];
+    [preparedData setObject:_todo.text forKey:@"todo"];
+    NSString* start = [_startDate.text stringByReplacingOccurrencesOfString:@"년 " withString:@"-"];
+    start = [start stringByReplacingOccurrencesOfString:@"월 " withString:@"-"];
+    start = [start stringByReplacingOccurrencesOfString:@"일" withString:@""];
+    [preparedData setObject:start forKey:@"start"];
+    
+    NSString* end = [_endDate.text stringByReplacingOccurrencesOfString:@"년 " withString:@"-"];
+    end = [end stringByReplacingOccurrencesOfString:@"월 " withString:@"-"];
+    end = [end stringByReplacingOccurrencesOfString:@"일" withString:@""];
+    [preparedData setObject:end forKey:@"end"];
+    
+    
+    NSMutableArray *aCheckedWeeks = [self getWeek];
+    if([_todo.text length] == 0 || [_startDate.text isEqualToString:@"click"] || [_endDate.text isEqualToString:@"click"] || [aCheckedWeeks count] == 0){
+        
+        [[[UIAlertView alloc] initWithTitle:@"입력되지 않은 항목이 있습니다 :(" message:@"" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil]show];
+    }
+    
+    NSMutableString *week = [[NSMutableString alloc]init];
+    
+    for(int i = 0; i < aCheckedWeeks.count; i++){
+        [week appendString:[aCheckedWeeks objectAtIndex:i]];
+        if(i < aCheckedWeeks.count -1){
+            [week appendString:@", "];
+        }
+    }
+    
+    [preparedData setObject:week forKey:@"week"];
+    
+    MJSqlLite *sq = [[MJSqlLite alloc]init];
+    [sq makeTable];
+    [sq mandatoryClearToday];
+    [sq alterData:preparedData];
+    return YES;
+}
+
 - (BOOL) resiveData{
     
     NSMutableArray *aCheckedWeeks = [self getWeek];
@@ -82,7 +151,7 @@
         }
     }
     
-    MJSqlLite *sql = [[MJSqlLite alloc]init];
+    sql = [[MJSqlLite alloc]init];
     [sql makeTable];
     [sql addTodo:_todo.text start:_startDate.text end:_endDate.text at:week];
     return YES;
@@ -287,6 +356,15 @@
 //resiveData
 -(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
+    if(_selectedData != NULL){
+        return [self convertData];
+    }
     return [self resiveData];
 }
+
+- (IBAction)delTodo:(id)sender {
+    MJSqlLite *sq = [[MJSqlLite alloc]init];
+    [sq deleteList:_todo.text];
+}
+
 @end

@@ -30,4 +30,11 @@
 @property (weak, nonatomic) IBOutlet UIButton *fri;
 @property (weak, nonatomic) IBOutlet UIButton *sat;
 
+//for modify
+@property NSMutableDictionary* selectedData;
+@property (weak, nonatomic) IBOutlet UILabel *modiTitle;
+@property (weak, nonatomic) IBOutlet UIButton *delButton;
+@property (weak, nonatomic) IBOutlet UIButton *addBtn;
+
+
 @end

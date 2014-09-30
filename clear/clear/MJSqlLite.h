@@ -29,6 +29,9 @@
 -(void)setTodayData;
 -(BOOL)todayTapped:(NSString*)title;
 -(BOOL)getTappedInfo:(NSString*)title;
+-(void)deleteList:(NSString*)title;
+-(void)alterData:(NSMutableDictionary*)dic;
+-(void)mandatoryClearToday;
 
 //initialize
 -(void)makeTable;

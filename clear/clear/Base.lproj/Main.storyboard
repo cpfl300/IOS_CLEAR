@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
+        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
@@ -79,7 +80,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-544" y="54"/>
+            <point key="canvasLocation" x="-822" y="-262"/>
         </scene>
         <!--Today Table View Controller-->
         <scene sceneID="AFI-fC-qIR">
@@ -162,7 +163,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g1N-1R-oCw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="220" y="54"/>
+            <point key="canvasLocation" x="-136" y="440"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="J9W-Wm-iui">
@@ -177,7 +178,23 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WHU-pm-E6n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-159" y="54"/>
+            <point key="canvasLocation" x="-459" y="-212"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Lal-vL-o3s">
+            <objects>
+                <navigationController id="WhO-VV-JQQ" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lia-0w-bKo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="DBs-iz-usX" kind="relationship" relationship="rootViewController" id="Ht5-jX-zTZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DEC-mO-jOY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="754" y="-773"/>
         </scene>
         <!--List Table View Controller-->
         <scene sceneID="rR1-Yc-XNb">
@@ -201,7 +218,7 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="listCell" rowHeight="108" id="uGf-9D-mM8" customClass="ListTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="listCell" rowHeight="108" id="uGf-9D-mM8" customClass="ListTableViewCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="108"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uGf-9D-mM8" id="cY1-Yk-peA">
@@ -237,6 +254,7 @@
                                     <outlet property="todoDate" destination="dtd-GL-Qe4" id="KDl-Zp-jIn"/>
                                     <outlet property="todoImg" destination="RWS-IB-gzm" id="Chw-Zw-Nxb"/>
                                     <outlet property="todoWeek" destination="S6k-cv-2jy" id="eMN-pI-FOs"/>
+                                    <segue destination="WhO-VV-JQQ" kind="modal" identifier="modify" id="GWc-VL-Imf"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -248,7 +266,7 @@
                     <navigationItem key="navigationItem" id="FTM-Q4-BBd">
                         <barButtonItem key="rightBarButtonItem" id="Fix-lu-o56">
                             <connections>
-                                <segue destination="DBs-iz-usX" kind="push" id="dDN-MQ-n3o"/>
+                                <segue destination="DBs-iz-usX" kind="push" id="Vd7-6i-S8z"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -258,7 +276,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JAI-tO-cG5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="573" y="54"/>
+            <point key="canvasLocation" x="232" y="-218"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="lEp-lA-XPF">
@@ -460,13 +478,27 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kLu-nX-UPw">
+                                <rect key="frame" x="245" y="67" width="43" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Del" backgroundImage="bigPinkCircle.png">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="delTodo:" destination="DBs-iz-usX" eventType="touchUpInside" id="roy-cq-DjY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.96862751250000001" green="0.96862751250000001" blue="0.96862751250000001" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="y1B-NP-ld5"/>
                     <connections>
+                        <outlet property="addBtn" destination="8T6-p4-Flh" id="ibz-9W-Gjg"/>
+                        <outlet property="delButton" destination="kLu-nX-UPw" id="SPJ-J3-zgO"/>
                         <outlet property="endDate" destination="MNr-RZ-yQ6" id="FGn-9Q-b8f"/>
                         <outlet property="fri" destination="4lX-vl-oZf" id="jrU-kz-Ook"/>
+                        <outlet property="modiTitle" destination="hUI-UJ-8pJ" id="VOg-BH-WlR"/>
                         <outlet property="mon" destination="JH7-Pl-JA6" id="fnl-Wh-cC9"/>
                         <outlet property="picker" destination="Aca-sb-dSS" id="rbN-sW-vaK"/>
                         <outlet property="pickerContainer" destination="at0-nf-qhS" id="v7X-Qb-P0p"/>
@@ -481,12 +513,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wrw-7p-oKx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="917" y="54"/>
+            <point key="canvasLocation" x="-31" y="-586"/>
         </scene>
     </scenes>
     <resources>
         <image name=" mainLogo.png" width="204" height="62"/>
         <image name="bigBlueCircle.png" width="77" height="77"/>
+        <image name="bigPinkCircle.png" width="77" height="77"/>
         <image name="greenCircle.png" width="25" height="25"/>
         <image name="growing-plants.png" width="420" height="205"/>
         <image name="pinkCircle.png" width="25" height="25"/>
@@ -497,7 +530,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="dDN-MQ-n3o"/>
+        <segue reference="MOs-Qc-67B"/>
         <segue reference="gaV-gw-3yo"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.74901962280273438" green="0.74901962280273438" blue="0.74901962280273438" alpha="1" colorSpace="deviceRGB"/>

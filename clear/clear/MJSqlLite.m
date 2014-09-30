@@ -274,6 +274,17 @@
     
 }
 
+-(void)mandatoryClearToday{
+    const char *delSqlStatement = "DELETE FROM today";
+    char* delError;
+    
+    if(sqlite3_exec(_feedDb, delSqlStatement, NULL, NULL, &delError) == SQLITE_OK){
+        NSLog(@"clear today table!");
+    } else {
+        NSLog(@"Error: %s", delError);
+    }
+}
+
 -(void)setTodayData{
     NSString *today = [self getTodayAtFormat:@"YYYY-MM-dd"];
     NSString *todayWeek = [[self getDayOfWeek]stringByReplacingOccurrencesOfString:@"요일" withString:@""];
@@ -355,4 +366,57 @@
     return result;
 }
 
+-(void)deleteList:(NSString*)title{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *dbPath = [documentsDirectory stringByAppendingPathComponent:@"clear.db"];
+    
+    NSLog(@"Path: %@", dbPath);
+    if(sqlite3_open([dbPath UTF8String], &_feedDb) == SQLITE_OK){
+        NSLog(@"OK");
+    }
+    
+    
+    NSString* nsdelSql = [[NSString alloc]initWithFormat:@"DELETE FROM list where TITLE =\"%@\"", title];
+    const char *delSqlStatement = [nsdelSql UTF8String];
+    char* delError;
+    int test = sqlite3_exec(_feedDb, delSqlStatement, NULL, NULL, &delError);
+    if(test == SQLITE_OK){
+        NSLog(@"delete from list");
+    } else {
+        NSLog(@"Error: %s %d", delError, test);
+    }
+    
+    const char *todayDelSqlStatement = [[[NSString alloc]initWithFormat:@"DELETE FROM today where TITLE =\"%@\"", title] UTF8String];
+    char* todayDelError;
+    
+    if(sqlite3_exec(_feedDb, todayDelSqlStatement, NULL, NULL, &todayDelError) == SQLITE_OK){
+        NSLog(@"delete from list");
+    } else {
+        NSLog(@"Error: %s", todayDelError);
+    }
+    
+}
+
+-(void)alterData:(NSMutableDictionary*)dic{
+    NSString* key = [dic objectForKeyedSubscript:@"todo"];
+    NSString* start = [dic objectForKeyedSubscript:@"start"];
+    NSString* end = [dic objectForKeyedSubscript:@"end"];
+    NSString* week = [dic objectForKeyedSubscript:@"week"];
+    
+    
+    NSString *replaceStatement = [NSString stringWithFormat:@"UPDATE list SET START = \"%@\", END = \"%@\", WEEK = \"%@\" WHERE TITLE =\"%@\"", start, end, week, key];
+    NSLog(@"%@", replaceStatement);
+    char *error;
+    if(sqlite3_exec(_feedDb, [replaceStatement UTF8String], NULL, NULL, &error) == SQLITE_OK){
+        [[[UIAlertView alloc] initWithTitle:@"TODO가 변경되었습니다 :)" message:@"" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil]show];
+    } else {
+        NSLog(@"Error: %s", error);
+    }
+    
+    [self setTodayData];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"changed" object:self userInfo:nil];
+//    TodayTableViewController *today = [[TodayTableViewController alloc]init];
+//    [today.tableView reloadData];
+}
 @end

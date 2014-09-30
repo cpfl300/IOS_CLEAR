@@ -47,7 +47,16 @@
     UIImage *newList = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     self.navigationItem.leftBarButtonItem.image = newList;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reDraw:)
+                                                 name:@"changed"
+                                               object:nil];
 
+}
+
+-(void)reDraw :(NSNotification *) notification{
+    [self.tableView reloadData];
 }
 
 - (IBAction)Add:(id)sender{
@@ -140,15 +149,6 @@
     
     [self.tableView reloadData];
     
-    
-//    [cell isHighlighted];
-//    if([cell isSelected]){
-//        cell.todoImg.image = [UIImage imageNamed:@"blueCircle.png"];
-//        cell.todo.textColor = [UIColor colorWithRed:74.0/255.0 green:93.0/255.0 blue:226.0/255.0 alpha:1.0];
-//    } else {
-//        cell.todoImg.image = [UIImage imageNamed:@"pinkCircle.png"];
-//        cell.todo.textColor = [UIColor colorWithRed:241.0/255.0 green:112.0/255.0 blue:104.0/255.0 alpha:1.0];
-//    }
 }
 
 
