@@ -391,10 +391,12 @@
     char* todayDelError;
     
     if(sqlite3_exec(_feedDb, todayDelSqlStatement, NULL, NULL, &todayDelError) == SQLITE_OK){
-        NSLog(@"delete from list");
+        NSLog(@"delete from today");
     } else {
         NSLog(@"Error: %s", todayDelError);
     }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"changed" object:self userInfo:nil];
     
 }
 

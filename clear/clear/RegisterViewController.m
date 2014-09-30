@@ -128,7 +128,6 @@
     
     MJSqlLite *sq = [[MJSqlLite alloc]init];
     [sq makeTable];
-    [sq mandatoryClearToday];
     [sq alterData:preparedData];
     return YES;
 }
