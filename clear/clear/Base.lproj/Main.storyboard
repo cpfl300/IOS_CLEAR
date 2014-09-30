@@ -487,6 +487,7 @@
                                 </state>
                                 <connections>
                                     <action selector="delTodo:" destination="DBs-iz-usX" eventType="touchUpInside" id="roy-cq-DjY"/>
+                                    <segue destination="Kpv-29-mEv" kind="modal" id="BhF-yz-l2h"/>
                                 </connections>
                             </button>
                         </subviews>
